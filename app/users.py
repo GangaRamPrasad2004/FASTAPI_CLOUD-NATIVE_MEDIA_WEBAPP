@@ -10,7 +10,11 @@ from fastapi_users.authentication import(
 from fastapi_users.db import SQLAlchemyUserDatabase
 from app.db import User,get_user_db
 
-SECRET="rahvi25"
+import os
+from dotenv import load_dotenv
+
+load_dotenv() # This loads the variables from the .env file
+SECRET = os.getenv("SECRET_KEY") # No actual key is visible here!
 
 class UserManager(UUIDIDMixin,BaseUserManager[User,uuid.UUID]):
     reset_password_token_secret=SECRET
