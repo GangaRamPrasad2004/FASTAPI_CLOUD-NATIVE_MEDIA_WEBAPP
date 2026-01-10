@@ -42,6 +42,7 @@ async def upload_file(
         upload_result=imagekit.upload_file(
             file=open(temp_file_path,"rb"),
             file_name=file.filename,
+            file_id=upload_result.file_id,
             options=UploadFileRequestOptions(
             use_unique_file_name=True,
             tags=["backend-upload"]
